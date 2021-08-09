@@ -1,14 +1,22 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-import SearchBar from './SearchBar';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import MainPage from './MainPage';
+import ShoppingCartPage from './ShoppingCartPage';
 
 class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <Route path="/">
-          <SearchBar />
-        </Route>
+        <div>
+          <Switch>
+            <Route path="/shopping-cart">
+              <ShoppingCartPage />
+            </Route>
+            <Route exact path="/">
+              <MainPage />
+            </Route>
+          </Switch>
+        </div>
       </BrowserRouter>
     );
   }
