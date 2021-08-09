@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-// import SearchBar from
+import { BrowserRouter, Route } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
 class App extends React.Component {
   render() {
