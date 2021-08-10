@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import CategoriesList from './CategoriesList';
 import MainPage from './MainPage';
 import ShoppingCartPage from './ShoppingCartPage';
 
@@ -16,6 +17,7 @@ class App extends React.Component {
               <MainPage />
             </Route>
           </Switch>
+          <CategoriesList />
         </div>
       </BrowserRouter>
     );
