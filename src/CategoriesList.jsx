@@ -4,7 +4,7 @@ import { getCategories } from './services/api';
 class CategoriesList extends React.Component {
   constructor() {
     super();
-    this.teste = this.teste.bind(this);
+    this.fetchCategories = this.fetchCategories.bind(this);
     this.state = {
       loading: true,
       categories: [],
@@ -12,10 +12,10 @@ class CategoriesList extends React.Component {
   }
 
   componentDidMount() {
-    this.teste();
+    this.fetchCategories();
   }
 
-  async teste() {
+  async fetchCategories() {
     const categoriesList = await getCategories();
     this.setState({
       loading: false,
