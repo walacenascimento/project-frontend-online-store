@@ -1,5 +1,6 @@
 import React from 'react';
 import { getCategories } from './services/api';
+import './CategoriesList.css';
 
 class CategoriesList extends React.Component {
   constructor() {
@@ -24,9 +25,11 @@ class CategoriesList extends React.Component {
   }
 
   mapCategories(categories) {
+    const { onClick } = this.props;
+
     return categories.map((category) => (
       <div data-testid="category" key={ category.id }>
-        <input type="radio" name={ category.id } />
+        <input type="radio" name={ category.id } onClick={ onClick } />
         { category.name }
       </div>
     ));
@@ -36,9 +39,9 @@ class CategoriesList extends React.Component {
     const { loading, categories } = this.state;
     const loadingElement = (<p>Carregando...</p>);
     return (
-      <div>
+      <aside className="aside-categories">
         { loading ? loadingElement : this.mapCategories(categories) }
-      </div>
+      </aside>
 
     );
   }
