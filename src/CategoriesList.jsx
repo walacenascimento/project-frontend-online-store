@@ -27,8 +27,8 @@ class CategoriesList extends React.Component {
     const { onClick } = this.props;
 
     return categories.map((category) => (
-      <div data-testid="category" key={ category.id }>
-      <input type="radio" name={ category.id } onClick={ onClick }  />
+      <div key={ category.id }>
+      <input data-testid="category" type="radio" name={ category.id } onClick={ onClick }  />
       { category.name }
       </div>
     ));

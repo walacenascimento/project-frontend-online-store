@@ -1,3 +1,4 @@
+// ========================versão sem quebrar==========================================================
 import React from 'react';
 import PropTypes from 'prop-types';
 import './ProductsCard.css';
@@ -32,6 +33,7 @@ ProductsCard.propTypes = {
 
 export default ProductsCard;
 
+//===================================== 1ª versao ===============================
 // import React from 'react';
 // import PropTypes from 'prop-types';
 // import './ProductsCard.css';

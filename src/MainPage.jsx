@@ -27,6 +27,10 @@ class MainPage extends React.Component {
     }, this.fetchProduct);
   }
 
+  // onClickCards({ target }) {
+  //   console.log(target);
+  // }
+
   handleChange({ target }) {
     this.setState({
       productInput: target.value,
@@ -71,7 +75,7 @@ class MainPage extends React.Component {
           Pesquisar
         </button>
         {loading === true ? inputEmpty : responseAPI
-          .map((product) => <ProductsCard product={ product } key={ product.id } />)}
+          .map((product) => <ProductsCard product={ product } key={ product.id } onClick={ this.onClickCards } />)}
         <Link to="/shopping-cart">
           <button type="button" data-testid="shopping-cart-button">Cart</button>
         </Link>
