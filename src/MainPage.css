@@ -1,0 +1,21 @@
+.main-aside {
+  display: flex;
+}
+
+.search-bar {
+  align-items: center;
+  display: flex;
+  height: 80px;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+
+.search-bar input {
+  width: 800px;
+}
+
+.search-bar #input-button {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+}
