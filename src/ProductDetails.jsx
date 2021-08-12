@@ -47,11 +47,10 @@ class ProductDetails extends React.Component {
           </Link>
           <Link to="/shopping-cart">
             <button
-              className="btn btn-outline-secondary"
               type="button"
               data-testid="shopping-cart-button"
             >
-              <i className="fas fa-shopping-cart" />
+              CART
             </button>
           </Link>
         </header>
