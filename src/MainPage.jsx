@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { getProductsFromCategoryAndQuery } from './services/api';
 import CategoriesList from './CategoriesList';
@@ -20,13 +21,6 @@ class MainPage extends React.Component {
   }
 
   // Função onClick para atualização do ID do estado - requisito 6
-  onClick({ target }) {
-    const { name } = target;
-
-    this.setState({
-      id: name,
-    }, this.fetchProduct);
-  }
 
   // // Requisito 8
   // onClickButtonCart({ target: {id}}) {
@@ -44,11 +38,18 @@ class MainPage extends React.Component {
     });
   }
 
+  onClick({ target }) {
+    const { name } = target;
+    this.setState({
+      id: name,
+    }, this.fetchProduct);
+  }
+
   // Requisição à API do ML e atualização do estado com o resultado
   fetchProduct() {
     const { productInput, id } = this.state;
 
-    getProductsFromCategoryAndQuery( id, productInput).then((response) => {
+    getProductsFromCategoryAndQuery(id, productInput).then((response) => {
       this.setState({
         responseAPI: [...response.results],
         loading: false,
@@ -64,17 +65,17 @@ class MainPage extends React.Component {
       </p>
     );
     const { onClickButtonCart } = this.props;
-    
+
     return (
       <div>
         <label htmlFor="search-bar-input">
-        <input
-          type="text"
-          data-testid="query-input"
-          name="search-bar-input"
-          value={ productInput }
-          onChange={ this.handleChange }
-        />
+          <input
+            type="text"
+            data-testid="query-input"
+            name="search-bar-input"
+            value={ productInput }
+            onChange={ this.handleChange }
+          />
         </label>
         <button
           type="button"
@@ -84,14 +85,22 @@ class MainPage extends React.Component {
           Pesquisar
         </button>
         {loading === true ? inputEmpty : responseAPI
-          .map((product) => <ProductsCard product={ product } key={ product.id } onClickButtonCart={ onClickButtonCart } />)}
+          .map((product) => (<ProductsCard
+            product={ product }
+            key={ product.id }
+            onClickButtonCart={ onClickButtonCart }
+          />))}
         <Link to="/shopping-cart">
           <button type="button" data-testid="shopping-cart-button">Cart</button>
         </Link>
-        <CategoriesList onClick={ this.onClick } fetch={ this.fetchProduct }/>
+        <CategoriesList onClick={ this.onClick } fetch={ this.fetchProduct } />
       </div>
     );
   }
 }
-    
+
+MainPage.propTypes = {
+  onClickButtonCart: PropTypes.func.isRequired,
+};
+
 export default MainPage;
