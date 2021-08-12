@@ -10,17 +10,23 @@ class ProductsCard extends React.Component {
 
     return (
       <div>
-        <Link to={ `/product/${id}` } data-testid="product-detail-link" >
+        <Link to={ `/product/${id}` } data-testid="product-detail-link">
           <div className="product-card border rounded" data-testid="product" id={ id }>
-              <h4>{ title }</h4>
-              <img src={ thumbnail } alt="thumbnail" />
-              <p>
-                R$
-                { price }
-              </p>
+            <h4>{ title }</h4>
+            <img src={ thumbnail } alt="thumbnail" />
+            <p>
+              R$
+              { price }
+            </p>
           </div>
         </Link>
-        <button type="button" data-testid="product-add-to-cart" onClick={ onClickButtonCart }>ADICIONAR AO CARRINHO</button>
+        <button
+          type="button"
+          data-testid="product-add-to-cart"
+          onClick={ onClickButtonCart }
+        >
+          ADICIONAR AO CARRINHO
+        </button>
       </div>
     );
   }
@@ -33,6 +39,7 @@ ProductsCard.propTypes = {
     thumbnail: PropTypes.string,
     id: PropTypes.number,
   }).isRequired,
+  onClickButtonCart: PropTypes.func.isRequired,
 };
 
 export default ProductsCard;

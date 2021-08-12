@@ -28,8 +28,8 @@ class CategoriesList extends React.Component {
 
     return categories.map((category) => (
       <div key={ category.id }>
-      <input data-testid="category" type="radio" name={ category.id } onClick={ onClick }  />
-      { category.name }
+        <input data-testid="category" type="radio" name={ category.id } onClick={ onClick } />
+        { category.name }
       </div>
     ));
   }
@@ -38,14 +38,14 @@ class CategoriesList extends React.Component {
     const { loading, categories } = this.state;
     const loadingElement = (<p>Carregando...</p>);
     return (
-    <div>
-    { loading ? loadingElement : this.mapCategories(categories) }
-    </div>
+      <div>
+        { loading ? loadingElement : this.mapCategories(categories) }
+      </div>
     );
   }
 }
 
-export default CategoriesList; 
+export default CategoriesList;
 
 // import React from 'react';
 // import { getCategories } from './services/api';
