@@ -15,12 +15,10 @@ class App extends React.Component {
     this.onClickButtonCart = this.onClickButtonCart.bind(this);
   }
 
-  onClickButtonCart({ target }) {
+  onClickButtonCart(productProductsCard) {
     const { infoCart } = this.state;
-    const divParent = target.previousSibling.firstChild;
-    const title = divParent.firstChild.innerText;
-    const price = divParent.lastChild.innerText;
-    // Lógica feita com a ajuda do monitor Eduardo.
+    const { title, price } = productProductsCard;
+    // // Lógica feita com a ajuda do monitor Eduardo.
     const findProduct = infoCart.find((p) => p.title === title);
     if (findProduct) {
       const finalResult = infoCart.map((product) => {
