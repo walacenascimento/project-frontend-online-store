@@ -6,7 +6,6 @@ import Attributes from './Attributes';
 class ProductDetails extends React.Component {
   constructor() {
     super();
-
     this.state = {
       product: {},
       attributesLoading: false,
@@ -17,7 +16,6 @@ class ProductDetails extends React.Component {
     const { match } = this.props;
     const { params } = match;
     const { id } = params;
-
     fetch(`https://api.mercadolibre.com/items/${id}`)
       .then((response) => response.json())
       .then((res) => {
@@ -32,6 +30,7 @@ class ProductDetails extends React.Component {
     const { product, attributesLoading } = this.state;
     const { title, thumbnail, price, attributes } = product;
     const loading = (<div>Carregando...</div>);
+    const { onClickButtonCart } = this.props;
 
     if (attributesLoading === false) return loading;
 
@@ -49,10 +48,17 @@ class ProductDetails extends React.Component {
             <button
               type="button"
               data-testid="shopping-cart-button"
+              onClick={ () => onClickButtonCart(product) }
             >
               CART
             </button>
           </Link>
+          <button
+            type="button"
+            data-testid="product-detail-add-to-cart"
+          >
+            Add to Cart
+          </button>
         </header>
         <div>
           <div>
@@ -77,19 +83,25 @@ class ProductDetails extends React.Component {
                 />
               ))}
             </div>
+            <div>
+              <textarea
+                data-testid="product-detail-evaluation"
+                placeholder="Avaliações do produto"
+              />
+            </div>
           </div>
         </div>
       </div>
     );
   }
 }
-
 ProductDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.number,
     }),
   }).isRequired,
+  onClickButtonCart: PropTypes.func.isRequired,
 };
 
 export default ProductDetails;
