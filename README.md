@@ -10,7 +10,7 @@ Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua cr
 - quais arquivos/pastas foram desenvolvidos pela Trybe.
 -->
 
-# Projeto Shopping-Cart
+# Projeto Nome do Porjeto
   `Olá, seja bem vindo(a) ao projeto Nome do Projeto!`
 
 ### DESCRIÇÃO:
